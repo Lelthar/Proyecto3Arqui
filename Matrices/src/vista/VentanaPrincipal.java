@@ -41,18 +41,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnAgregar = new javax.swing.JButton();
         btnListaMatrices = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtfMatriz1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtfMatriz2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtfOperacion = new javax.swing.JTextField();
         btnListaOperaciones = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtfCantidadHilos = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtfResultado = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtAResultado = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
 
@@ -83,21 +83,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel1.setText("Numero de matriz 1:");
         jLabel1.setToolTipText("");
 
-        jTextField1.setBackground(new java.awt.Color(102, 102, 102));
-        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtfMatriz1.setBackground(new java.awt.Color(102, 102, 102));
+        txtfMatriz1.setForeground(new java.awt.Color(204, 204, 204));
+        txtfMatriz1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Numero de matriz 2:");
 
-        jTextField2.setBackground(new java.awt.Color(102, 102, 102));
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtfMatriz2.setBackground(new java.awt.Color(102, 102, 102));
+        txtfMatriz2.setForeground(new java.awt.Color(204, 204, 204));
+        txtfMatriz2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Operacion a realizar: ");
 
-        jTextField3.setBackground(new java.awt.Color(102, 102, 102));
-        jTextField3.setForeground(new java.awt.Color(204, 204, 204));
+        txtfOperacion.setBackground(new java.awt.Color(102, 102, 102));
+        txtfOperacion.setForeground(new java.awt.Color(204, 204, 204));
 
         btnListaOperaciones.setBackground(new java.awt.Color(51, 51, 51));
         btnListaOperaciones.setForeground(new java.awt.Color(204, 204, 204));
@@ -111,18 +112,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("Cantidad de hilos:");
 
-        jTextField4.setBackground(new java.awt.Color(102, 102, 102));
+        txtfCantidadHilos.setBackground(new java.awt.Color(102, 102, 102));
+        txtfCantidadHilos.setForeground(new java.awt.Color(204, 204, 204));
 
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("Nombre de la matriz resultado:");
 
-        jTextField5.setBackground(new java.awt.Color(102, 102, 102));
+        txtfResultado.setBackground(new java.awt.Color(102, 102, 102));
+        txtfResultado.setForeground(new java.awt.Color(204, 204, 204));
 
-        jTextArea1.setBackground(new java.awt.Color(102, 102, 102));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAResultado.setBackground(new java.awt.Color(102, 102, 102));
+        txtAResultado.setColumns(20);
+        txtAResultado.setForeground(new java.awt.Color(204, 204, 204));
+        txtAResultado.setRows(5);
+        jScrollPane1.setViewportView(txtAResultado);
 
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setText("Resultado de la operacion: ");
@@ -130,6 +133,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(51, 51, 51));
         jButton4.setForeground(new java.awt.Color(204, 204, 204));
         jButton4.setText("Calcular");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
@@ -144,19 +152,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                                 .addGroup(panelFondoLayout.createSequentialGroup()
                                     .addComponent(jLabel1)
                                     .addGap(18, 18, 18)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtfMatriz1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(panelFondoLayout.createSequentialGroup()
                                     .addComponent(jLabel3)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtfOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGap(231, 231, 231)
                             .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(18, 18, 18)
                             .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField4)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtfCantidadHilos)
+                                .addComponent(txtfMatriz2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(panelFondoLayout.createSequentialGroup()
                             .addGap(371, 371, 371)
                             .addComponent(btnAgregar)
@@ -168,7 +176,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addGap(220, 220, 220)
                             .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtfResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(287, 287, 287)))
                     .addGroup(panelFondoLayout.createSequentialGroup()
                         .addGap(93, 93, 93)
@@ -192,22 +200,22 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGap(126, 126, 126)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtfMatriz2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtfMatriz1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtfOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtfCantidadHilos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtfResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,6 +254,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.controlador.abrirVentanaListaOperaciones();
     }//GEN-LAST:event_btnListaOperacionesActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        this.controlador.realizarOperacion();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -260,12 +273,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTextArea jTextArea1;
-    public javax.swing.JTextField jTextField1;
-    public javax.swing.JTextField jTextField2;
-    public javax.swing.JTextField jTextField3;
-    public javax.swing.JTextField jTextField4;
-    public javax.swing.JTextField jTextField5;
     private javax.swing.JPanel panelFondo;
+    public javax.swing.JTextArea txtAResultado;
+    public javax.swing.JTextField txtfCantidadHilos;
+    public javax.swing.JTextField txtfMatriz1;
+    public javax.swing.JTextField txtfMatriz2;
+    public javax.swing.JTextField txtfOperacion;
+    public javax.swing.JTextField txtfResultado;
     // End of variables declaration//GEN-END:variables
 }
