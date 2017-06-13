@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  *
@@ -29,7 +30,6 @@ public class Matriz {
         this.numeroMatriz = numeroMatriz;
         this.tipo = tipo;
         this.nombreArchivo = nombreArchivo;
-        this.matrizMostrar = " ";
         matrizNumeros = new int[m][n];
         generarMatriz();
         guardarTxt();
@@ -67,19 +67,21 @@ public class Matriz {
     public void guardarTxt() throws IOException{
         String ruta = nombreArchivo+".txt";
         String datosArchivo = "";
+        matrizMostrar = "";
         File archivo = new File(ruta);
         BufferedWriter bw;
         bw = new BufferedWriter(new FileWriter(archivo));
         datosArchivo += ("Valor de M: "+m+", Valor de N: "+n+"\n");
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
-                datosArchivo += (matrizNumeros[i][j]+"\t");
-                matrizMostrar += (matrizNumeros[i][j]+"\t");
+                datosArchivo += (matrizNumeros[i][j]+" ");
+                //matrizMostrar += (matrizNumeros[i][j]);
             }
             datosArchivo += "\n";
-            matrizMostrar += "\n";
+            //matrizMostrar += "\n";
         }
         bw.write(datosArchivo);
+        //System.out.println(matrizNumeros.toString());
      
         bw.close();
     }

@@ -77,6 +77,8 @@ public class Controlador {
         }
     }
     
+    //public void 
+    
     //-------------------------------------------------Operaciones----------------------------------------------------------
     public void sumaMatrices(int matriz1, int matriz2,String nombreArchivo) throws IOException{
         Matriz matrizNueva = new Matriz();
@@ -114,6 +116,7 @@ public class Controlador {
         numeroMatrices++;
         
     }
+    
     
 
  

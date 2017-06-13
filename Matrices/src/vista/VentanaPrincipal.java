@@ -6,6 +6,9 @@
 package vista;
 
 import controlador.Controlador;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -255,8 +258,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListaOperacionesActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        this.controlador.realizarOperacion();
+        try {
+            // TODO add your handling code here:
+            this.controlador.realizarOperacion();
+        } catch (IOException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
 
