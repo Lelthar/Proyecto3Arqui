@@ -1,3 +1,0 @@
-Valor de M: 2, Valor de N: 3
-58	68	59	
-39	3	31	

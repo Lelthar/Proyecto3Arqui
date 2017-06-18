@@ -204,6 +204,7 @@ public class VentanaAgregarMatriz extends javax.swing.JFrame {
         try {
             // TODO add your handling code here:
             vistaPrincipal.controlador.agregarMatriz();
+            
         } catch (IOException ex) {
             Logger.getLogger(VentanaAgregarMatriz.class.getName()).log(Level.SEVERE, null, ex);
         }

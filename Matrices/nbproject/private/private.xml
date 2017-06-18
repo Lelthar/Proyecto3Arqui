@@ -5,6 +5,8 @@
         <group>
             <file>file:/home/gerald/Documents/gitHub/ArquiProgra/Proyecto3Arqui/Matrices/src/vista/VentanaPrincipal.java</file>
             <file>file:/home/gerald/Documents/gitHub/ArquiProgra/Proyecto3Arqui/Matrices/src/modelo/Matriz.java</file>
+            <file>file:/home/gerald/Documents/gitHub/ArquiProgra/Proyecto3Arqui/Matrices/src/vista/VentanaAgregarMatriz.java</file>
+            <file>file:/home/gerald/Documents/gitHub/ArquiProgra/Proyecto3Arqui/Matrices/src/controlador/Controlador.java</file>
             <file>file:/home/gerald/Documents/gitHub/ArquiProgra/Proyecto3Arqui/Matrices/src/matrices/Matrices.java</file>
         </group>
     </open-files>
