@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import modelo.Matriz;
 import vista.VentanaPrincipal;
 
@@ -21,6 +22,7 @@ public class Controlador {
     VentanaPrincipal vistaVentana;
     ArrayList<Matriz> listaMatrices;
     public int numeroMatrices;
+   
     public Controlador() {
         this.numeroMatrices = 0;
         this.vistaVentana = new VentanaPrincipal(this);
@@ -41,30 +43,65 @@ public class Controlador {
         if(vistaVentana.txtfCantidadHilos.getText() != "" && vistaVentana.txtfOperacion.getText() != "" && vistaVentana.txtfMatriz1.getText() != "" && vistaVentana.txtfResultado.getText() != "" && !listaMatrices.isEmpty()){
             if(Integer.parseInt(vistaVentana.txtfOperacion.getText()) == 1){
                 if(vistaVentana.txtfMatriz2.getText() != ""){
-                    sumaMatrices(Integer.parseInt(vistaVentana.txtfMatriz1.getText()),Integer.parseInt(vistaVentana.txtfMatriz2.getText()),vistaVentana.txtfResultado.getText());
+                    try{
+                        long startTime = System.currentTimeMillis();
+                        sumaMatrices(Integer.parseInt(vistaVentana.txtfMatriz1.getText()),Integer.parseInt(vistaVentana.txtfMatriz2.getText()),vistaVentana.txtfResultado.getText());
+                        long endTime = System.currentTimeMillis() - startTime;
+                        vistaVentana.txtAResultado.append("Tiempo de ejecucion: "+endTime+"\n");
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(this.vistaVentana, "No se puede realizar la operación, porque una de las matrices no es valida", "Parametros no validos", JOptionPane.WARNING_MESSAGE);
+                    }
                 }else{
-                    //Poner mensaje de la que la matriz2 esta vacia
+                    JOptionPane.showMessageDialog(this.vistaVentana, "No se puede realizar la operación, porque una de las matrices no es valida", "Parametros no validos", JOptionPane.WARNING_MESSAGE);
                 }
             }else if(Integer.parseInt(vistaVentana.txtfOperacion.getText()) == 2){
                 if(vistaVentana.txtfMatriz2.getText() != ""){
-                   matrizPorEscalar(Integer.parseInt(vistaVentana.txtfMatriz1.getText()),Integer.parseInt(vistaVentana.txtfMatriz2.getText()),vistaVentana.txtfResultado.getText());
+                    try{
+                        long startTime = System.currentTimeMillis();
+                        matrizPorEscalar(Integer.parseInt(vistaVentana.txtfMatriz1.getText()),Integer.parseInt(vistaVentana.txtfMatriz2.getText()),vistaVentana.txtfResultado.getText());
+                        long endTime = System.currentTimeMillis() - startTime;
+                        vistaVentana.txtAResultado.append("Tiempo de ejecucion: "+endTime+"\n");
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(this.vistaVentana, "No se puede realizar la operación, porque una de las matrices no es valida", "Parametros no validos", JOptionPane.WARNING_MESSAGE);
+                    }
                 }else{
-                    //Poner mensaje que no tiene escalar
+                    JOptionPane.showMessageDialog(this.vistaVentana, "No se puede realizar la operación, porque una de las matrices no es valida", "Parametros no validos", JOptionPane.WARNING_MESSAGE);
                 }
             }else if(Integer.parseInt(vistaVentana.txtfOperacion.getText()) == 3){
                 if(vistaVentana.txtfMatriz2.getText() != ""){
-                    System.out.println("Aqui va el codigo de producto de matrices");
+                    try{
+                        long startTime = System.currentTimeMillis();
+                        calcularMultiplicacionMatrices(Integer.parseInt(vistaVentana.txtfMatriz1.getText()),Integer.parseInt(vistaVentana.txtfMatriz2.getText()),vistaVentana.txtfResultado.getText());
+                        long endTime = System.currentTimeMillis() - startTime;
+                        vistaVentana.txtAResultado.append("Tiempo de ejecucion: "+endTime+"\n");
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(this.vistaVentana, "No se puede realizar la operación, porque una de las matrices no es valida", "Parametros no validos", JOptionPane.WARNING_MESSAGE);
+                    }
                 }else{
                     System.out.println("Falta parametro de matriz 2");
                 }
             }else if(Integer.parseInt(vistaVentana.txtfOperacion.getText()) == 4){
                 System.out.println("Aqui va el de calcular inversa");
             }else if(Integer.parseInt(vistaVentana.txtfOperacion.getText()) == 5){
-                System.out.println("Aqui va el tipo de matriz");
+                try{
+                    long startTime = System.currentTimeMillis();
+                    verTiposMatriz(Integer.parseInt(vistaVentana.txtfMatriz1.getText()));
+                    long endTime = System.currentTimeMillis() - startTime;
+                    vistaVentana.txtAResultado.append("Tiempo de ejecucion: "+endTime+"\n");
+                }catch(Exception e){
+                        JOptionPane.showMessageDialog(this.vistaVentana, "No se puede realizar la operación, porque una de las matrices no es valida", "Parametros no validos", JOptionPane.WARNING_MESSAGE);
+                    }
             }else if(Integer.parseInt(vistaVentana.txtfOperacion.getText()) == 6){
                 System.out.println("Aqui va el rango de la matriz");
             }else if(Integer.parseInt(vistaVentana.txtfOperacion.getText()) == 7){
-                matrizTranspuesta(Integer.parseInt(vistaVentana.txtfMatriz1.getText()),vistaVentana.txtfResultado.getText());
+                try{
+                    long startTime = System.currentTimeMillis();
+                    matrizTranspuesta(Integer.parseInt(vistaVentana.txtfMatriz1.getText()),vistaVentana.txtfResultado.getText());
+                    long endTime = System.currentTimeMillis() - startTime;
+                    vistaVentana.txtAResultado.append("Tiempo de ejecucion: "+endTime+"\n");
+                }catch(Exception e){
+                        JOptionPane.showMessageDialog(this.vistaVentana, "No se puede realizar la operación, porque una de las matrices no es valida", "Parametros no validos", JOptionPane.WARNING_MESSAGE);
+                    }
             }
             
         }else{
@@ -78,7 +115,7 @@ public class Controlador {
             listaMatrices.add(nuevaMatriz);
             cargarMatrizPanelAgregar(vistaVentana.vistaAgregar.txtfNombre.getText(),Integer.parseInt(vistaVentana.vistaAgregar.txtfM.getText()),Integer.parseInt(vistaVentana.vistaAgregar.txtfN.getText()),vistaVentana.vistaAgregar.txtfTipo.getText());
             numeroMatrices++;
-            System.out.println(listaMatrices.size());
+            //System.out.println(listaMatrices.size());
             //vistaVentana.vistaAgregar.txtAResultado.setText(nuevaMatriz.matrizMostrar);
         }
     }
@@ -140,6 +177,10 @@ public class Controlador {
     
     //-------------------------------------------------Operaciones----------------------------------------------------------
     public void sumaMatrices(int matriz1, int matriz2,String nombreArchivo) throws IOException{
+        Runtime rt = Runtime.getRuntime();
+        long total = rt.totalMemory();
+        long free = rt.freeMemory();
+        long uso = total-free;
         Matriz matrizNueva = new Matriz();
         matrizNueva.calcularSumaMatrices(listaMatrices.get(matriz1).getNombreArchivo(), listaMatrices.get(matriz2).getNombreArchivo(),listaMatrices.get(matriz1).getM(),listaMatrices.get(matriz1).getN(),nombreArchivo,listaMatrices.get(matriz2).getN());
         //matrizNueva.setNombreArchivo(nombreArchivo);
@@ -150,6 +191,11 @@ public class Controlador {
         //vistaVentana.txtAResultado.setText(matrizNueva.matrizMostrar);
         cargarMatrizPanelPrincipal(nombreArchivo,listaMatrices.get(matriz1).getM(),listaMatrices.get(matriz1).getN(),"M");
         numeroMatrices++;
+        
+        total = rt.totalMemory();
+        free = rt.freeMemory();
+        uso = (total-free)-uso;
+        System.out.println(uso/1024);
         
     }
     public void matrizPorEscalar(int matriz1, int escalar,String nombreArchivo) throws IOException{
@@ -162,6 +208,9 @@ public class Controlador {
         numeroMatrices++;
         
     }
+    /**
+     *
+     */
     public void matrizTranspuesta(int matriz1,String nombreArchivo) throws IOException{
         Matriz matrizNueva = new Matriz();
         matrizNueva.calcularTranspuestaMatriz(listaMatrices.get(matriz1).getNombreArchivo(),listaMatrices.get(matriz1).getM(),listaMatrices.get(matriz1).getN(),nombreArchivo);
@@ -173,9 +222,20 @@ public class Controlador {
         
     }
     
-    
+    public void calcularMultiplicacionMatrices(int matriz1, int matriz2,String nombreArchivo) throws IOException{
+        Matriz matrizNueva = new Matriz();
+        //System.out.println("Entro1");
+        matrizNueva.multiplicacionMatrices(listaMatrices.get(matriz1).getNombreArchivo(), listaMatrices.get(matriz2).getNombreArchivo(),listaMatrices.get(matriz1).getM(),listaMatrices.get(matriz1).getN(),nombreArchivo,listaMatrices.get(matriz2).getN());
+        matrizNueva.setTipo("M");
+        matrizNueva.setNumeroMatriz(numeroMatrices);
+        listaMatrices.add(matrizNueva);
+        //cargarMatrizPanelPrincipal(nombreArchivo,listaMatrices.get(matriz1).getM(),listaMatrices.get(matriz2).getN(),"M");
+        numeroMatrices++;
+        
+    }
+    public void verTiposMatriz(int matriz1) throws IOException{
+        listaMatrices.get(matriz1).tiposMatriz(listaMatrices.get(matriz1).getNombreArchivo(),listaMatrices.get(matriz1).getM(),listaMatrices.get(matriz1).getN());
 
- 
-    
+    }
     
 }
