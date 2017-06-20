@@ -103,6 +103,7 @@ public class Controlador {
                     long total = rt.totalMemory();
                     long startTime = System.currentTimeMillis();
                     verTiposMatriz(Integer.parseInt(vistaVentana.txtfMatriz1.getText()),Integer.parseInt(vistaVentana.txtfCantidadHilos.getText()));
+                    JOptionPane.showMessageDialog(this.vistaVentana, "El resultado de la operacion está en la consola", "Aviso", JOptionPane.WARNING_MESSAGE);
                     long endTime = System.currentTimeMillis() - startTime;
                     long free = rt.freeMemory();
                     long uso = total-free;
