@@ -295,55 +295,160 @@ public class Matriz {
      * Este metodo sirve para ver los tipos de matriz que es una matriz en un txt
      * Recibe el nombre del archivo, el valor de m y n
      */
-    public void tiposMatriz(String matriz1,int pM1, int pN1) throws FileNotFoundException, IOException{
-        if(matrizFila(pM1)){
-            System.out.println("La matriz es matriz fila.");
+    public void tiposMatriz(String matriz1,int pM1, int pN1, int hilos) throws FileNotFoundException, IOException{
+        if(hilos == 0){
+            if(matrizFila(pM1)){
+                System.out.println("La matriz es matriz fila.");
+            }else{
+                System.out.println("La matriz no es matriz fila");
+            }
+            if(matrizColumna(pN1)){
+                System.out.println("La matriz es matriz columna.");
+            }else{
+                System.out.println("La matriz no es matriz columna");
+            }
+            if(matrizRectangular(pM1,pN1)){
+                System.out.println("La matriz no es matriz cuadrada.");
+                System.out.println("La matriz es matriz rectangular.");
+            }else{
+                System.out.println("La matriz es matriz cuadrada.");
+                System.out.println("La matriz no es matriz rectangular");
+            }
+            if(matrizNula(matriz1,pM1,pN1)){
+                System.out.println("La matriz es matriz nula.");
+            }else{
+                System.out.println("La matriz no es matriz nula");
+            }
+            if(matrizTriangularSuperior(matriz1,pM1,pN1)){
+                System.out.println("La matriz es matriz triangular superior");
+            }else{
+                System.out.println("La matriz no es matriz triangular superior");
+            }
+            if(matrizTriangularInferior(matriz1,pM1,pN1)){
+                System.out.println("La matriz es matriz triangular inferior");
+            }else{
+                System.out.println("La matriz no es matriz triangular inferior");
+            }
+            if(matrizDiagonal(matriz1,pM1,pN1)){
+                System.out.println("La matriz es matriz diagonal");
+            }else{
+                System.out.println("La matriz no es matriz diagonal");
+            }
+            if(matrizEscalar(matriz1,pM1,pN1)){
+                System.out.println("La matriz es matriz escalar");
+            }else{
+                System.out.println("La matriz no es matriz escalar");
+            }
+            if(matrizIdentidad(matriz1,pM1,pN1)){
+                System.out.println("La matriz es matriz identidad");
+            }else{
+                System.out.println("La matriz no es matriz identidad");
+            }
+        }else if(hilos == 1){
+            int[] lista = new int[9];
+            lista[0] = 1;
+            lista[1] = 2;
+            lista[2] = 3;
+            lista[3] = 4;
+            lista[4] = 5;
+            lista[5] = 6;
+            lista[6] = 7;
+            lista[7] = 8;
+            lista[8] = 9;
+            HiloMatriz hilo = new HiloMatriz(lista, matriz1, pM1, pN1);
+            hilo.start();
+        }else if(hilos == 2){
+            int[] lista1 = new int[5];
+            int[] lista2 = new int[4];
+            lista1[0] = 1;
+            lista1[1] = 2;
+            lista1[2] = 3;
+            lista1[3] = 4;
+            lista1[4] = 5;
+            lista2[0] = 6;
+            lista2[1] = 7;
+            lista2[2] = 8;
+            lista2[3] = 9;
+            HiloMatriz hilo1 = new HiloMatriz(lista1, matriz1, pM1, pN1);
+            HiloMatriz hilo2 = new HiloMatriz(lista2, matriz1, pM1, pN1);
+            hilo1.start();
+            hilo2.start();
+        }else if(hilos == 3){
+            int[] lista1 = new int[3];
+            int[] lista2 = new int[3];
+            int[] lista3 = new int[3];
+            
+            lista1[0] = 1;
+            lista1[1] = 2;
+            lista1[2] = 3;
+            lista2[0] = 4;
+            lista2[1] = 5;
+            lista2[2] = 6;
+            lista3[0] = 7;
+            lista3[1] = 8;
+            lista3[2] = 9;
+            
+            HiloMatriz hilo1 = new HiloMatriz(lista1, matriz1, pM1, pN1);
+            HiloMatriz hilo2 = new HiloMatriz(lista2, matriz1, pM1, pN1);
+            HiloMatriz hilo3 = new HiloMatriz(lista3, matriz1, pM1, pN1);
+            hilo1.start();
+            hilo2.start();
+            hilo3.start();
+        }else if(hilos == 4){
+            int[] lista1 = new int[2];
+            int[] lista2 = new int[2];
+            int[] lista3 = new int[2];
+            int[] lista4 = new int[3];
+            
+            lista1[0] = 1;
+            lista1[1] = 2;
+            lista2[0] = 3;
+            lista2[1] = 4;
+            lista3[0] = 5;
+            lista3[1] = 6;
+            lista4[0] = 7;
+            lista4[1] = 8;
+            lista4[2] = 9;
+            
+            HiloMatriz hilo1 = new HiloMatriz(lista1, matriz1, pM1, pN1);
+            HiloMatriz hilo2 = new HiloMatriz(lista2, matriz1, pM1, pN1);
+            HiloMatriz hilo3 = new HiloMatriz(lista3, matriz1, pM1, pN1);
+            HiloMatriz hilo4 = new HiloMatriz(lista4, matriz1, pM1, pN1);
+            hilo1.start();
+            hilo2.start();
+            hilo3.start();
+            hilo4.start();
+       
+        }else if(hilos == 5){
+            int[] lista1 = new int[2];
+            int[] lista2 = new int[2];
+            int[] lista3 = new int[2];
+            int[] lista4 = new int[2];
+            int[] lista5 = new int[1];
+            
+            lista1[0] = 1;
+            lista1[1] = 2;
+            lista2[0] = 3;
+            lista2[1] = 4;
+            lista3[0] = 5;
+            lista3[1] = 6;
+            lista4[0] = 7;
+            lista4[1] = 8;
+            lista5[0] = 9;
+            
+            HiloMatriz hilo1 = new HiloMatriz(lista1, matriz1, pM1, pN1);
+            HiloMatriz hilo2 = new HiloMatriz(lista2, matriz1, pM1, pN1);
+            HiloMatriz hilo3 = new HiloMatriz(lista3, matriz1, pM1, pN1);
+            HiloMatriz hilo4 = new HiloMatriz(lista4, matriz1, pM1, pN1);
+            HiloMatriz hilo5 = new HiloMatriz(lista5, matriz1, pM1, pN1);
+            hilo1.start();
+            hilo2.start();
+            hilo3.start();
+            hilo4.start();
+            hilo5.start();
         }else{
-            System.out.println("La matriz no es matriz fila");
+            System.out.println("Excedio el limite de hilos permitidos");
         }
-        if(matrizColumna(pN1)){
-            System.out.println("La matriz es matriz columna.");
-        }else{
-            System.out.println("La matriz no es matriz columna");
-        }
-        if(matrizRectangular(pM1,pN1)){
-            System.out.println("La matriz no es matriz cuadrada.");
-            System.out.println("La matriz es matriz rectangular.");
-        }else{
-            System.out.println("La matriz es matriz cuadrada.");
-            System.out.println("La matriz no es matriz rectangular");
-        }
-        if(matrizNula(matriz1,pM1,pN1)){
-            System.out.println("La matriz es matriz nula.");
-        }else{
-            System.out.println("La matriz no es matriz nula");
-        }
-        if(matrizTriangularSuperior(matriz1,pM1,pN1)){
-            System.out.println("La matriz es matriz triangular superior");
-        }else{
-            System.out.println("La matriz no es matriz triangular superior");
-        }
-        if(matrizTriangularInferior(matriz1,pM1,pN1)){
-            System.out.println("La matriz es matriz triangular inferior");
-        }else{
-            System.out.println("La matriz no es matriz triangular inferior");
-        }
-        if(matrizDiagonal(matriz1,pM1,pN1)){
-            System.out.println("La matriz es matriz diagonal");
-        }else{
-            System.out.println("La matriz no es matriz diagonal");
-        }
-        if(matrizEscalar(matriz1,pM1,pN1)){
-            System.out.println("La matriz es matriz escalar");
-        }else{
-            System.out.println("La matriz no es matriz escalar");
-        }
-        if(matrizIdentidad(matriz1,pM1,pN1)){
-            System.out.println("La matriz es matriz identidad");
-        }else{
-            System.out.println("La matriz no es matriz identidad");
-        }
-        
         
         
         
